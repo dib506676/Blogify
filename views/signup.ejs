@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./particals/header") %>
+    <title>Sign Up</title>
+    <style>
+      /* General styles */
+      body {
+        background-color: #121212; /* Black background */
+        color: #ffffff; /* Light text */
+        font-family: 'Roboto', sans-serif;
+      }
+
+      .card {
+        background-color: #1e1e1e; /* Dark card background */
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Subtle shadow */
+      }
+
+      .form-control {
+        background-color: #2a2a2a; /* Darker input background */
+        color: #ffffff; /* Input text */
+        border: 1px solid #444; /* Input border */
+      }
+
+      .form-control::placeholder {
+        color: #bbbbbb; /* Placeholder text */
+      }
+
+      .form-control:focus {
+        background-color: #2a2a2a;
+        color: #ffffff;
+        border-color: #1d72b8;
+        box-shadow: none;
+      }
+
+      .btn-primary {
+        background-color: #1d72b8; /* Blue button background */
+        border: none;
+        font-weight: bold;
+      }
+
+      .btn-primary:hover {
+        background-color: #155a8c; /* Darker blue on hover */
+      }
+
+      a {
+        color: #1d72b8; /* Link color */
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .card-title {
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+
+      .card-footer {
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+      <div class="card p-4 shadow-lg w-100" style="max-width: 28rem;">
+        <h2 class="text-center mb-4">Sign Up</h2>
+        <form action="/user/signup" method="post">
+          <!-- Full Name -->
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="fullName"
+              name="fullName"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input
+              name="email"
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              name="password"
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+          </div>
+
+          <!-- Already have an account -->
+          <p class="text-center mt-3">
+            Already have an account? <a href="#">Log In</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

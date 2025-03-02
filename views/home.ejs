@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./particals/header") %>
+    <title>Home Page</title>
+    <style>
+      body {
+        background-color: #212529; /* Dark background */
+        color: #f8f9fa; /* Light text */
+        font-family: Arial, sans-serif;
+      }
+
+      h1 {
+        color: #ffffff; /* White heading */
+        margin-bottom: 30px;
+      }
+
+      .card {
+        background-color: #343a40; /* Card background */
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6); /* Enhanced shadow */
+        transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effects */
+      }
+
+      .card:hover {
+        transform: scale(1.05); /* Slight scale-up on hover */
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); /* Deeper shadow */
+      }
+
+      .card-img-top {
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        height: 160px; /* Image height adjustment */
+        object-fit: cover;
+      }
+
+      .card-title {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      .card-text {
+        font-size: 0.85rem;
+        color: #adb5bd;
+        margin-bottom: 15px;
+      }
+
+      .btn-custom {
+        background-color: #6f42c1;
+        border: none;
+        padding: 6px 12px;
+        color: #ffffff;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 6px;
+      }
+
+      .btn-custom:hover {
+        background-color: #5a379a;
+        box-shadow: 0 2px 6px rgba(90, 55, 154, 0.8);
+      }
+
+      @media (max-width: 1200px) {
+        .card {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .card {
+          width: 100%; /* Full width for medium screens */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .card-img-top {
+          height: 140px; /* Smaller image height */
+        }
+        .card-title {
+          font-size: 0.95rem; /* Adjusted title size */
+        }
+        .card-text {
+          font-size: 0.8rem;
+        }
+        .btn-custom {
+          font-size: 0.8rem;
+          padding: 5px 10px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .row {
+          flex-direction: column; /* Stack cards vertically on small screens */
+        }
+        .card {
+          margin-bottom: 20px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .card-img-top {
+          height: 120px; /* Smaller image height */
+        }
+        .btn-custom {
+          font-size: 0.75rem; /* Compact button */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./components/navbar") %>
+
+    <div class="container my-5">
+      <h1 class="text-center">Latest Blogs</h1>
+      <div class="row g-4 justify-content-center">
+        <% blogs.forEach(blog => { %>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card">
+              <img
+                src="<%= blog.coverImageURL %>"
+                class="card-img-top"
+                alt="Blog Cover Image"
+              />
+              <div class="card-body">
+                <h6 class="card-title"><%= blog.title %></h6>
+                <p class="card-text">Published: <%= blog.createdAt %></p>
+                <div class="d-grid">
+                  <a href="/blog/<%= blog._id %>" class="btn btn-custom btn-sm">View More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <%- include("./particals/script") %>
+  </body>
+</html>

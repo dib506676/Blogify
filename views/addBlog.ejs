@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("./particals/header") %>
+    <title>Home Page</title>
+    <style>
+      body {
+        background-color: #121212; /* Very dark gray for the background */
+        color: #e4e4e4; /* Light gray for text */
+        font-family: Arial, sans-serif;
+      }
+
+      .form-container {
+        max-width: 500px;
+        margin: 50px auto;
+        background-color: #1c1c1c; /* Slightly lighter gray for the form background */
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Enhanced shadow for depth */
+      }
+
+      .form-container h2 {
+        color: #f8f9fa; /* Light text for the heading */
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* Subtle text shadow */
+      }
+
+      .form-label {
+        color: #d4d4d4; /* Softer gray for labels */
+      }
+
+      .form-control {
+        background-color: #2c2c2c; /* Dark gray for inputs */
+        color: #e4e4e4; /* Light text inside inputs */
+        border: 1px solid #3a3a3a;
+        border-radius: 6px;
+      }
+
+      .form-control:focus {
+        border-color: #6c42c1; /* Purple focus border */
+        box-shadow: 0 0 6px rgba(108, 66, 193, 0.6); /* Purple glow */
+      }
+
+      .btn-custom {
+        background-color: #6f42c1; /* Bootstrap's purple */
+        color: #ffffff;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      .btn-custom:hover {
+        background-color: #5a379a; /* Darker purple on hover */
+        box-shadow: 0 4px 8px rgba(90, 55, 154, 0.8); /* Button shadow effect */
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./components/navbar") %>
+    <div class="container">
+      <div class="form-container">
+        <h2 class="text-center mb-4">Upload Your Blog</h2>
+        <form action="/blog" method="post" enctype="multipart/form-data">
+          <!-- File Upload -->
+          <div class="mb-3">
+            <label for="fileUpload" class="form-label">Upload File</label>
+            <input
+              type="file"
+              class="form-control"
+              id="fileUpload"
+              name="coverImageURL"
+              required
+            />
+          </div>
+          <!-- Title -->
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              name="title"
+              type="text"
+              class="form-control"
+              id="title"
+              placeholder="Enter blog title"
+              required
+            />
+          </div>
+          <!-- Description -->
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control"
+              id="body"
+              name="body"
+              rows="5"
+              placeholder="Enter blog description"
+              required
+            ></textarea>
+          </div>
+          <!-- Submit Button -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-custom w-100">Submit Blog</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <%- include("./particals/script") %>
+  </body>
+</html>
